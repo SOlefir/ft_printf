@@ -18,6 +18,12 @@ void	type_d(void) //дописать мод. длинны
 	after(ret);
 
 	before();
+	ret = printf("%.05d", 123);
+	between(ret);
+	ret = ft_printf("%.05d", 123);
+	after(ret);
+
+	before();
 	ret = printf("%d", 2147483648);
 	between(ret);
 	ret = ft_printf("%d", 2147483648);
