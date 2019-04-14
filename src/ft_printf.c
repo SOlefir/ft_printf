@@ -6,25 +6,13 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:17:07 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/12 20:27:33 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/14 17:37:16 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	print_buf_and_form(t_printf *global, int len)
-{
-	(void)global;
-	(void)len;
-	// вывести буфер и формат, обнулить бафсайз
-}
-
-void	parse_arg(t_printf *global)
-{
-	(void)global;
-}
-
-void	in_buf(t_printf *global)
+static void		in_buf(t_printf *global)
 {
 	int	len;
 
@@ -37,17 +25,17 @@ void	in_buf(t_printf *global)
 	}
 	if (len >= PRINTF_BUFF_SIZE ||
 		len + global->buf_size >= PRINTF_BUFF_SIZE)
-		print_buf_and_form(global, len); 
+		print_buf_and_form(global, global->form + global->iter_frm - len, len);
 	else
-	{	
-		ft_memcpy((void*)(global->buf + global->buf_size), 
+	{
+		ft_memcpy((void*)(global->buf + global->buf_size),
 				(void*)(global->form + global->iter_frm - len), (size_t)len);
 		global->buf_size += len;
-		global->ret = global->buf_size;
+		global->ret += len;
 	}
 }
 
-void	parse_str(t_printf *global)
+static void		parse_str(t_printf *global)
 {
 	while (global->form[global->iter_frm])
 	{
@@ -61,7 +49,7 @@ void	parse_str(t_printf *global)
 	}
 }
 
-int		ft_printf(char *format, ...)
+int				ft_printf(char *format, ...)
 {
 	t_printf	global;
 

@@ -21,9 +21,9 @@ void	type_str(void)
 
 
 	before();
-	ret = printf(" my str");
+	ret = printf(" my str%%1235%%ksda");
 	between(ret);
-	ret = ft_printf(" my str");
+	ret = ft_printf(" my str%%1235%%ksda");
 	after(ret);
 
 	printf("\n-------------------------------\n");
