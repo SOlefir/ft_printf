@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/22 17:44:28 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/22 18:07:04 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ struct 	s_flags
 
 	int				h_counter;
 	int				l_counter;
-	int			precision;
-	int			width;
+	int				precision;
+	int				width;
 	char			width_char;
 };
 
 int     ft_printf(char *format, ...);
 void	print_buf_and_form(t_printf *global, char *str, int len);
 void	parse_arg(t_printf *global);
-
+void 	find_flags(t_printf *global, t_flags *flags)
 
 #endif

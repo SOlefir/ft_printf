@@ -6,7 +6,7 @@
 #    By: solefir <solefir@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/11 14:37:43 by solefir           #+#    #+#              #
-#    Updated: 2019/04/14 18:34:34 by solefir          ###   ########.fr        #
+#    Updated: 2019/04/22 18:10:56 by solefir          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRC = libft/ft_bzero.c libft/ft_memdel.c libft/ft_strclr.c\
     libft/ft_lstdelone.c libft/ft_lstdel.c libft/ft_lstadd.c\
     libft/ft_lstiter.c libft/ft_masmemdel.c libft/ft_lstdelcontent.c\
 	libft/ft_iswhitespace.c\
-    src/ft_printf.c src/parse_arg.c src/print_buf.c
+    src/ft_printf.c src/parse_arg.c src/print_buf.c src/flags.c
 
 OBJ = $(SRC:.c=.o)
 
