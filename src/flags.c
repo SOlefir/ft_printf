@@ -6,13 +6,31 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:05:50 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/22 18:32:16 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/22 20:28:40 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static 
+static void		ignor_or_not_ignor(t_flags *flags, char c)
+{
+	if (flags->h_counter && flags->h_counter % 2 == 1)
+		flags->h = 1;
+	else if (flags->h_counter)
+		flags->hh = 1;
+	if ((flags->l_counter && flags->l_counter % 2 == 1) ||
+		c == 'D' || c == 'O' || c == 'U')
+		flags->l = 1;
+	else if (flags->l_counter)
+		flags->ll = 1;
+	if (flags->plus == 1)
+		flags->space = 0;
+	if (((c == 'd' || c == 'p' || c == 'D' || c == 'i' || c == 'o' ||
+	c == 'O' || c == 'x' || c == 'X' || c == 'u' || c == 'U') &&
+	flags->have_precision) || flags->minus == 1)
+		flags->zero = 0;
+	flags->width_char = flags->zero ? '0' : ' ';
+}
 
 static void		width(t_printf *global, t_flags *flags)
 {
@@ -90,5 +108,5 @@ void 	find_flags(t_printf *global, t_flags *flags)
 			width(global, flags);
 		c = global->form[global->iter_frm];
 	}
-
+	ignor_or_not_ignor(global, c);
 }
