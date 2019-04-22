@@ -6,11 +6,45 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 17:26:03 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/14 18:45:57 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/22 18:01:40 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void		width(t_printf *global, t_flags *flags)
+{
+	size_t	nb;
+
+	nb = 0;
+	flags->have_width = 1;
+	while (global->form[global->iter_frm] >= '0' && 
+			global->form[global->iter_frm] <= '9')
+	{
+		nb = nb * 10 + (global->form[global->iter_frm] - '0');
+		global->iter_frm++;
+	}
+	flags->width = (int)nb;
+}
+
+static void		precision(t_printf *global, t_flags *flags)
+{
+	size_t	nb;
+
+	nb = 0;
+	flags->have_precision = 1;
+	global->iter_frm++;
+	while (global->form[global->iter_frm] == '0')
+			global->iter_frm++;
+	while (global->form[global->iter_frm] >= '0' && 
+			global->form[global->iter_frm] <= '9')
+	{
+		nb = nb * 10 + (global->form[global->iter_frm] - '0');
+		global->iter_frm++;
+	}
+	flags->precision = (int)nb;
+}
+
 
 static void		get_flags(t_flags *flags, char c)
 {
@@ -34,21 +68,13 @@ static void		get_flags(t_flags *flags, char c)
 		flags->z = 1;
 }
 
-static void		width_or_precision(t_printf *global, t_flags *flags)
-{
-	(void)global;
-	(void)flags;
-	global->iter_frm++;
-}
-
 static void 	find_flags(t_printf *global, t_flags *flags)
 {
 	char c;
 
 	c = global->form[global->iter_frm];
 	while (c == ' ' || c == '#' || c == '+' || c == '-' || c == '.' ||
-			c == '*' || (c >= '0' && c <= '9') ||
-			c == 'h' || c == 'l' || c == 'j' || c == 'z')
+		(c >= '0' && c <= '9') || c == 'h' || c == 'l' || c == 'j' || c == 'z')
 	{
 		if (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0' ||
 		c == 'h' || c == 'l' || c == 'j' || c == 'z')
@@ -56,8 +82,10 @@ static void 	find_flags(t_printf *global, t_flags *flags)
 			get_flags(flags, c);
 			global->iter_frm++;
 		}
+		else if (c == '.') 
+			precision(global, flags);
 		else
-			width_or_precision(global, flags);
+			width(global, flags);
 		c = global->form[global->iter_frm];
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/14 18:38:08 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/22 17:44:28 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ struct 	s_flags
 
 	int				h_counter;
 	int				l_counter;
-	size_t			precision;
-	size_t			width;
+	int			precision;
+	int			width;
 	char			width_char;
 };
 
