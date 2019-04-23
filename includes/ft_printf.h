@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/22 18:07:04 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/23 19:22:16 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include "libft.h"
-# define PRINTF_BUFF_SIZE 5
+# define PRINTF_BUFF_SIZE 205
 
 typedef struct s_printf	t_printf;
 typedef struct s_flags	t_flags;
@@ -55,8 +55,21 @@ struct 	s_flags
 };
 
 int     ft_printf(char *format, ...);
+
 void	print_buf_and_form(t_printf *global, char *str, int len);
+void	print_buf(t_printf *global);
 void	parse_arg(t_printf *global);
-void 	find_flags(t_printf *global, t_flags *flags)
+void 	find_flags(t_printf *global, t_flags *flags);
+void	specifier(t_printf *global, t_flags *flags);
+
+void	type_c(t_printf *global, t_flags *flags);
+void	type_s(t_printf *global, t_flags *flags);
+void	type_di(t_printf *global, t_flags *flags);
+void	type_o(t_printf *global, t_flags *flags);
+void	type_x(t_printf *global, t_flags *flags);
+void	type_f(t_printf *global, t_flags *flags);
+void	type_u(t_printf *global, t_flags *flags);
+void	type_p(t_printf *global, t_flags *flags);
+void	add_in_buf(t_printf *global, char c, int count);
 
 #endif
