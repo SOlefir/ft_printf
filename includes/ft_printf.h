@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/23 19:22:16 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/24 15:02:10 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ struct	s_printf
 	int		iter_frm;
 	int		buf_size;
 	int		ret;
+	size_t	nbr;
+	size_t	len_nbr;
 	char* 	form;
 	char* 	buf;
 	va_list	ap;
@@ -60,6 +62,7 @@ void	print_buf_and_form(t_printf *global, char *str, int len);
 void	print_buf(t_printf *global);
 void	parse_arg(t_printf *global);
 void 	find_flags(t_printf *global, t_flags *flags);
+
 void	specifier(t_printf *global, t_flags *flags);
 
 void	type_c(t_printf *global, t_flags *flags);
@@ -70,6 +73,9 @@ void	type_x(t_printf *global, t_flags *flags);
 void	type_f(t_printf *global, t_flags *flags);
 void	type_u(t_printf *global, t_flags *flags);
 void	type_p(t_printf *global, t_flags *flags);
-void	add_in_buf(t_printf *global, char c, int count);
+
+void	add_in_buf_char(t_printf *global, char c, int count);
+void	add_in_buf_str(t_printf *global, char *str, int len);
+void	add_in_buf_nbr(t_printf *global, int nbr, int len);
 
 #endif

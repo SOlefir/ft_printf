@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 21:18:10 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/23 19:47:05 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/24 14:51:52 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void		type_c(t_printf *global, t_flags *flags)
 
 	c = global->form[global->iter_frm];
 	if (c == 'c')
-		c = (char)va_arg(global->ap, int)
+		c = (char)va_arg(global->ap, int);
 	if (flags->minus)
-		add_in_buf(global, flags, c, 1);
-	if (flags->width > 0)
-		add_in_buf(global, flags->width, flags->width_char, 1);
+		add_in_buf_char(global, c, 1);
+	if (flags->width - 1 > 0)
+		add_in_buf_char(global, flags->width_char, flags->width - 1);
 	if (!(flags->minus))
-		add_in_buf(global, flags, c, 1);
+		add_in_buf_char(global, c, 1);
 }

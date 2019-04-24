@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:17:07 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/14 18:38:29 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/24 14:12:56 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void		parse_str(t_printf *global)
 		{
 			global->iter_frm++;
 			parse_arg(global);
+			if (global->form[global->iter_frm])
+				global->iter_frm++;
 		}
 		else
 			in_buf(global);

@@ -1,6 +1,6 @@
 #include "tests.h"
 
-void	type_u(void)
+void	type_unsigned(void)
 {
 	int ret;
 	

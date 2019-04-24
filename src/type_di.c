@@ -6,13 +6,13 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 21:22:47 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/22 21:22:56 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/24 14:04:57 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		type_di(t_printf *global, t_flags *flags);
+void		type_di(t_printf *global, t_flags *flags)
 {
 	(void)global;
 	(void)flags;

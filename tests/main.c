@@ -20,7 +20,7 @@ void after(int ret)
 
 int 	main(void)
 {
-	type_d();
+	type_char();
 	//type_str();
 	return(0);
 }

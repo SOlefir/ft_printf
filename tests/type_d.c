@@ -1,6 +1,6 @@
 #include "tests.h"
 
-void	type_d(void) //дописать мод. длинны
+void	type_dex(void) //дописать мод. длинны
 {
 	int ret;
 	
