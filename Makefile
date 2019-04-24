@@ -6,7 +6,7 @@
 #    By: solefir <solefir@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/11 14:37:43 by solefir           #+#    #+#              #
-#    Updated: 2019/04/23 19:22:47 by solefir          ###   ########.fr        #
+#    Updated: 2019/04/24 20:49:51 by solefir          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRC = libft/ft_bzero.c libft/ft_memdel.c libft/ft_strclr.c\
     src/ft_printf.c src/parse_arg.c src/print_buf.c src/flags.c\
 	src/specifier.c src/type_c.c src/type_s.c src/type_f.c src/type_di.c\
 	src/type_u.c src/type_x.c src/type_p.c src/type_o.c src/add_in_buf.c\
+	src/width__precision.c
 
 OBJ = $(SRC:.c=.o)
 

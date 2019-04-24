@@ -21,6 +21,7 @@ void after(int ret)
 int 	main(void)
 {
 	type_char();
-	//type_str();
+	//printf("%x", 7);
+	type_str();
 	return(0);
 }

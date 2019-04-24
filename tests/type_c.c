@@ -31,6 +31,12 @@ void	type_char(void)//дописать мод. длинны
 	after(ret);
 
 	before();
+	ret = printf("%25c", 42);
+	between(ret);
+	ret = ft_printf("%25c", 42);
+	after(ret);
+
+	before();
 	ret = printf("%.2c", NULL);
 	between(ret);
 	ret = ft_printf("%.2c", NULL);
@@ -47,6 +53,26 @@ void	type_char(void)//дописать мод. длинны
 	between(ret);
 	ret = ft_printf("null %c and text", 0);
 	after(ret);
+
+
+	before();
+	ret = printf("% c", 0);
+	between(ret);
+	ret = ft_printf("% c", 0);
+	after(ret);
+
+	before();
+	ret = printf("%2c", 0);
+	between(ret);
+	ret = ft_printf("%2c", 0);
+	after(ret);
+
+	before();
+	ret = printf("@moulitest: %c", 0);
+	between(ret);
+	ret = ft_printf("@moulitest: %c", 0);
+	after(ret);
+
 
 	printf("\n-------------------------------\n");
 }

@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 17:02:08 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/24 15:39:59 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/24 17:57:39 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,18 @@ void	add_in_buf_nbr(t_printf *global)
 {
 	while (global->len_nbr > 0)
 	{
-		if (global->buf_size == PRINTF_BUFF_SIZE)
+		if (global->buf_size == PRINTF_BUFF_SIZE &&
+			global->buf_size + global->len_nbr >= PRINTF_BUFF_SIZE)
 			print_buf(global);
-		global->buf[global->buf_size] = nbr(global) ;
-		count--;
-		i++;
+		global->buf[global->len_nbr] = '0' + (global->nbr % 10);
+		global->nbr = global->nbr / 10;
+		global->len_nbr--;
 		global->buf_size++;
 		global->ret++;
 	}
 }
 
-void	add_in_buf_str(t_printf *global, char *str, int len)
+void	add_in_buf_str(t_printf *global, char *str, int len) //нужна переменная, где будет храниться строка с ва арг
 {
 	int	i;
 
@@ -36,7 +37,7 @@ void	add_in_buf_str(t_printf *global, char *str, int len)
 		if (global->buf_size == PRINTF_BUFF_SIZE)
 			print_buf(global);
 		global->buf[global->buf_size] = str[i];
-		count--;
+		len--;
 		i++;
 		global->buf_size++;
 		global->ret++;

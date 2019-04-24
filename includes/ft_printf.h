@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/24 15:02:10 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/24 20:48:48 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include "libft.h"
-# define PRINTF_BUFF_SIZE 205
+# define PRINTF_BUFF_SIZE 4056
 
 typedef struct s_printf	t_printf;
 typedef struct s_flags	t_flags;
@@ -27,6 +27,8 @@ struct	s_printf
 	int		ret;
 	size_t	nbr;
 	size_t	len_nbr;
+	char*	str;
+	int		str_len;
 	char* 	form;
 	char* 	buf;
 	va_list	ap;
@@ -64,6 +66,8 @@ void	parse_arg(t_printf *global);
 void 	find_flags(t_printf *global, t_flags *flags);
 
 void	specifier(t_printf *global, t_flags *flags);
+void	width(t_flags *flags, t_printf *global);
+void	precision(t_flags *flags, t_printf *global);
 
 void	type_c(t_printf *global, t_flags *flags);
 void	type_s(t_printf *global, t_flags *flags);
@@ -76,6 +80,6 @@ void	type_p(t_printf *global, t_flags *flags);
 
 void	add_in_buf_char(t_printf *global, char c, int count);
 void	add_in_buf_str(t_printf *global, char *str, int len);
-void	add_in_buf_nbr(t_printf *global, int nbr, int len);
+void	add_in_buf_nbr(t_printf *global);
 
 #endif
