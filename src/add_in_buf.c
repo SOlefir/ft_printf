@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 17:02:08 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/25 17:29:44 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/25 19:31:05 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	add_in_buf_nbr(t_printf *global, size_t nbr, size_t len_nbr)
 	global->ret += temp;
 }
 
-void	add_in_buf_str(t_printf *global, char *str, int len) //нужна переменная, где будет храниться строка с ва арг
+void	add_in_buf_str(t_printf *global, char *str, int len)
 {
 	int	i;
 

@@ -24,6 +24,7 @@ int 	main(void)
 	//printf("%x", 7);
 	//type_str();
 	//type_dex();
-	type_unsigned();
+	//type_unsigned();
+	type_xeh();
 	return(0);
 }

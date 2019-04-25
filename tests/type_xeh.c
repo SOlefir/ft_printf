@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 21:26:16 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/25 17:21:59 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/25 21:25:40 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,43 @@ void	type_xeh(void)
 	ret = printf("%010x", 542);
 	between(ret);
 	ret = ft_printf("%010x", 542);
+	after(ret);
+
+
+	before();
+	ret = printf("%#x", 42);
+	between(ret);
+	ret = ft_printf("%#x", 42);
+	after(ret);
+
+	before();
+	ret = printf("@moulitest: %.x %.0x", 0, 0);
+	between(ret);
+	ret = ft_printf("@moulitest: %.x %.0x", 0, 0);
+	after(ret);
+
+	before();
+	ret = printf("%#x", 0);
+	between(ret);
+	ret = ft_printf("%#x", 0);
+	after(ret);
+
+	before();
+	ret = printf("%#X", 0);
+	between(ret);
+	ret = ft_printf("%#X", 0);
+	after(ret);
+
+	before();
+	ret = printf("%#8x", 42);
+	between(ret);
+	ret = ft_printf("%#8x", 42);
+	after(ret);
+
+	before();
+	ret = printf("%#-08x", 42);
+	between(ret);
+	ret = ft_printf("%#-08x", 42);
 	after(ret);
 
 	printf("\n-------------------------------\n");

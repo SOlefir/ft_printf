@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/25 17:32:35 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/25 20:01:52 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ void	add_in_buf_nbr(t_printf *global, size_t nbr, size_t len_nbr);
 size_t	unsigned_nbr(t_flags *flags, va_list ap);
 size_t	signed_nbr(t_flags *flags, va_list ap);
 size_t	len_nbr(size_t nbr);
+char	*itoa(size_t nbr, size_t *len_str, int notation, const _Bool low);
 
 #endif
