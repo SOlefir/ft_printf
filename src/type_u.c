@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 21:23:40 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/24 14:04:49 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/25 17:53:54 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,19 @@
 
 void		type_u(t_printf *global, t_flags *flags)
 {
-	(void)global;
-	(void)flags;
+	size_t		nbr;
+	size_t		len_n;
+
+	nbr = unsigned_nbr(flags, global->ap);
+	len_n = len_nbr(nbr);
+	precision_count(flags, len_n);
+	width_count(flags, len_n, 0);
+	if (!flags->minus && flags->have_width)
+		add_in_buf_char(global, flags->width_char, flags->width);
+	if (flags->have_precision)
+		add_in_buf_char(global, '0', flags->precision);
+	if (len_n)
+		add_in_buf_nbr(global, nbr, len_n);
+	if (flags->minus && flags->have_width)
+		add_in_buf_char(global, flags->width_char, flags->width);
 }

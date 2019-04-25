@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/24 20:48:48 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/25 17:32:35 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ struct	s_printf
 	int		iter_frm;
 	int		buf_size;
 	int		ret;
-	size_t	nbr;
-	size_t	len_nbr;
 	char*	str;
 	int		str_len;
 	char* 	form;
@@ -66,8 +64,8 @@ void	parse_arg(t_printf *global);
 void 	find_flags(t_printf *global, t_flags *flags);
 
 void	specifier(t_printf *global, t_flags *flags);
-void	width(t_flags *flags, t_printf *global);
-void	precision(t_flags *flags, t_printf *global);
+void	width_count(t_flags *flags, unsigned int znak, size_t len_nbr);
+void	precision_count(t_flags *flags, size_t len_nbr);
 
 void	type_c(t_printf *global, t_flags *flags);
 void	type_s(t_printf *global, t_flags *flags);
@@ -80,6 +78,9 @@ void	type_p(t_printf *global, t_flags *flags);
 
 void	add_in_buf_char(t_printf *global, char c, int count);
 void	add_in_buf_str(t_printf *global, char *str, int len);
-void	add_in_buf_nbr(t_printf *global);
+void	add_in_buf_nbr(t_printf *global, size_t nbr, size_t len_nbr);
+size_t	unsigned_nbr(t_flags *flags, va_list ap);
+size_t	signed_nbr(t_flags *flags, va_list ap);
+size_t	len_nbr(size_t nbr);
 
 #endif

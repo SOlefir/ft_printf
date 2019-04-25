@@ -135,5 +135,17 @@ void	type_unsigned(void)
 	ret = ft_printf("%hU", 4294967296);
 	after(ret);
 
+	before();
+	ret = printf("%u", -1);
+	between(ret);
+	ret = ft_printf("%u", -1);
+	after(ret);
+
+	before();
+	ret = printf("@moulitest: %.5u", 42);
+	between(ret);
+	ret = ft_printf("@moulitest: %.5u", 42);
+	after(ret);
+
 	printf("\n-------------------------------\n");
 }

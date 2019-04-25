@@ -12,5 +12,6 @@ void	type_dex(void);
 void	type_char(void);
 void	type_unsigned(void);
 void	type_str(void);
+void	type_xeh(void);
 
 #endif

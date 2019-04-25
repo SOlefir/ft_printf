@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   width__precision.c                              :+:      :+:    :+:   */
+/*   width__precision.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/24 20:47:09 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/24 20:48:56 by solefir          ###   ########.fr       */
+/*   Created: 2019/04/25 15:14:44 by solefir           #+#    #+#             */
+/*   Updated: 2019/04/25 17:32:23 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	width(t_flags *flags, t_printf *global)
+void	width_count(t_flags *flags, unsigned int znak, size_t len_nbr)
 {
 	int	i;
 
-	i = flags->width - flags->precision - (int)global->len_ndr - flags->negative;
+	i = flags->width - flags->precision - (int)len_nbr - znak;
 	if (i <= 0)
 	{
 		flags->have_width = 0;
@@ -26,11 +26,11 @@ void	width(t_flags *flags, t_printf *global)
 		flags->width = i;
 }
 
-void	precision(t_flags *flags, t_printf *global)
+void	precision_count(t_flags *flags, size_t len_nbr)
 {
 	int	i;
 
-	i = flags->precision - (int)global->len_nbr;
+	i = flags->precision - (int)len_nbr;
 	if (i <= 0)
 	{
 		flags->have_precision = 0;

@@ -20,8 +20,10 @@ void after(int ret)
 
 int 	main(void)
 {
-	type_char();
+	//type_char();
 	//printf("%x", 7);
-	type_str();
+	//type_str();
+	//type_dex();
+	type_unsigned();
 	return(0);
 }
