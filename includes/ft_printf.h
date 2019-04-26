@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/25 20:01:52 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 17:19:14 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ void	precision_count(t_flags *flags, size_t len_nbr);
 void	type_c(t_printf *global, t_flags *flags);
 void	type_s(t_printf *global, t_flags *flags);
 void	type_di(t_printf *global, t_flags *flags);
-void	type_o(t_printf *global, t_flags *flags);
+void	type_oct(t_printf *global, t_flags *flags);
 void	type_x(t_printf *global, t_flags *flags);
 void	type_f(t_printf *global, t_flags *flags);
 void	type_u(t_printf *global, t_flags *flags);
-void	type_p(t_printf *global, t_flags *flags);
+void	type_point(t_printf *global, t_flags *flags);
 
 void	add_in_buf_char(t_printf *global, char c, int count);
 void	add_in_buf_str(t_printf *global, char *str, int len);

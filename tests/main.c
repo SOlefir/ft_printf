@@ -25,6 +25,8 @@ int 	main(void)
 	//type_str();
 	//type_dex();
 	//type_unsigned();
-	type_xeh();
+	//type_xeh();
+	//type_o();
+	type_p();
 	return(0);
 }

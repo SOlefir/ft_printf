@@ -6,14 +6,43 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 21:23:18 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/24 14:04:46 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 17:30:15 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		type_o(t_printf *global, t_flags *flags)
+static char		*oct_or_not_oct(t_flags *flags, size_t nbr, size_t *len)
 {
-	(void)global;
-	(void)flags;
+
+	if (nbr == 0 && ((flags->have_precision && !flags->precision) || flags->hash))
+	{
+		*len = 0;
+		return (NULL);
+	}
+	return (itoa(nbr, len, 8, 1));
+}	
+
+void			type_oct(t_printf *global, t_flags *flags)
+{
+	size_t		len_n;
+	char		*oct;
+
+	oct = oct_or_not_oct(flags, unsigned_nbr(flags, global->ap), &len_n);
+	precision_count(flags, len_n + flags->hash);
+	width_count(flags, len_n, flags->hash);
+	if (!flags->minus && !flags->zero && flags->have_width)
+		add_in_buf_char(global, flags->width_char, flags->width);
+	if (flags->hash)
+		add_in_buf_char(global, '0', 1);
+	if (!flags->minus && flags->zero && flags->have_width)
+		add_in_buf_char(global, flags->width_char, flags->width);
+	if (flags->have_precision)
+		add_in_buf_char(global, '0', flags->precision);
+	if (len_n)
+		add_in_buf_str(global, (char*)oct, len_n);
+	if (flags->minus && flags->have_width)
+		add_in_buf_char(global, flags->width_char, flags->width);
+	if (len_n)
+		free(oct);
 }

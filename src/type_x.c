@@ -6,13 +6,13 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 21:23:28 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/25 21:43:20 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 17:21:05 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*hex_or_not_hex(t_flags *flags, size_t nbr, size_t *len, const _Bool x)
+static char		*hex_or_not_hex(t_flags *flags, size_t nbr, size_t *len, const _Bool x)
 {
 	if (nbr == 0)
 		flags->hash = 0;
