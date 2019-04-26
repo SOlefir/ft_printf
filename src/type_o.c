@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 21:23:18 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/26 17:30:15 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 19:07:58 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static char		*oct_or_not_oct(t_flags *flags, size_t nbr, size_t *len)
 {
-
-	if (nbr == 0 && ((flags->have_precision && !flags->precision) || flags->hash))
+	if (nbr == 0 &&
+		((flags->have_precision && !flags->precision) || flags->hash))
 	{
 		*len = 0;
 		return (NULL);
 	}
 	return (itoa(nbr, len, 8, 1));
-}	
+}
 
-void			type_oct(t_printf *global, t_flags *flags)
+void			type_o(t_printf *global, t_flags *flags)
 {
 	size_t		len_n;
 	char		*oct;

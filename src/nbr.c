@@ -6,13 +6,13 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 15:28:06 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/25 20:01:47 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:09:40 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*itoa(size_t nbr, size_t *len_str, int notation, const _Bool low)
+char		*itoa(size_t nbr, size_t *len_str, int notation, const _Bool low)
 {
 	char		*str;
 	const char	*letters = low ? "0123456789abcdef" : "0123456789ABCDEF";

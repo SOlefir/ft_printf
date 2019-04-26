@@ -1,2 +1,6 @@
 .vscode/*
 *.o
+tests/*
+a.out
+pf.txt
+run_tests.sh

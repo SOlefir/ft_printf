@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/11 15:00:37 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/26 17:19:14 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 20:10:32 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,19 @@
 typedef struct s_printf	t_printf;
 typedef struct s_flags	t_flags;
 
-struct	s_printf
+struct				s_printf
 {
-	int		iter_frm;
-	int		buf_size;
-	int		ret;
-	char*	str;
-	int		str_len;
-	char* 	form;
-	char* 	buf;
-	va_list	ap;
+	int				iter_frm;
+	int				buf_size;
+	int				ret;
+	char			*str;
+	int				str_len;
+	char			*form;
+	char			*buf;
+	va_list			ap;
 };
 
-struct 	s_flags
+struct				s_flags
 {
 	unsigned char	space : 1;
 	unsigned char	hash : 1;
@@ -48,6 +48,7 @@ struct 	s_flags
 	unsigned char	ll : 1;
 	unsigned char	j : 1;
 	unsigned char	z : 1;
+	unsigned char	big_l : 1;
 
 	int				h_counter;
 	int				l_counter;
@@ -56,32 +57,34 @@ struct 	s_flags
 	char			width_char;
 };
 
-int     ft_printf(char *format, ...);
+int					ft_printf(char *format, ...);
 
-void	print_buf_and_form(t_printf *global, char *str, int len);
-void	print_buf(t_printf *global);
-void	parse_arg(t_printf *global);
-void 	find_flags(t_printf *global, t_flags *flags);
+void				print_buf_and_form(t_printf *global, char *str, int len);
+void				print_buf(t_printf *global);
+void				parse_arg(t_printf *global);
+void				find_flags(t_printf *global, t_flags *flags);
 
-void	specifier(t_printf *global, t_flags *flags);
-void	width_count(t_flags *flags, unsigned int znak, size_t len_nbr);
-void	precision_count(t_flags *flags, size_t len_nbr);
+void				specifier(t_printf *global, t_flags *flags);
+void				width_count(t_flags *flags, unsigned int znak,
+															size_t len_nbr);
+void				precision_count(t_flags *flags, size_t len_nbr);
 
-void	type_c(t_printf *global, t_flags *flags);
-void	type_s(t_printf *global, t_flags *flags);
-void	type_di(t_printf *global, t_flags *flags);
-void	type_oct(t_printf *global, t_flags *flags);
-void	type_x(t_printf *global, t_flags *flags);
-void	type_f(t_printf *global, t_flags *flags);
-void	type_u(t_printf *global, t_flags *flags);
-void	type_point(t_printf *global, t_flags *flags);
+void				type_c(t_printf *global, t_flags *flags);
+void				type_s(t_printf *global, t_flags *flags);
+void				type_di(t_printf *global, t_flags *flags);
+void				type_o(t_printf *global, t_flags *flags);
+void				type_x(t_printf *global, t_flags *flags);
+void				type_u(t_printf *global, t_flags *flags);
+void				type_p(t_printf *global, t_flags *flags);
 
-void	add_in_buf_char(t_printf *global, char c, int count);
-void	add_in_buf_str(t_printf *global, char *str, int len);
-void	add_in_buf_nbr(t_printf *global, size_t nbr, size_t len_nbr);
-size_t	unsigned_nbr(t_flags *flags, va_list ap);
-size_t	signed_nbr(t_flags *flags, va_list ap);
-size_t	len_nbr(size_t nbr);
-char	*itoa(size_t nbr, size_t *len_str, int notation, const _Bool low);
+void				add_in_buf_char(t_printf *global, char c, int count);
+void				add_in_buf_str(t_printf *global, char *str, int len);
+void				add_in_buf_nbr(t_printf *global, size_t nbr,
+															size_t len_nbr);
+size_t				unsigned_nbr(t_flags *flags, va_list ap);
+size_t				signed_nbr(t_flags *flags, va_list ap);
+size_t				len_nbr(size_t nbr);
+char				*itoa(size_t nbr, size_t *len_str, int notation,
+															const _Bool low);
 
 #endif

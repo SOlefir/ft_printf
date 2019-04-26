@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/14 17:22:55 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/24 14:20:37 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:09:06 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	print_buf(t_printf *global)
 		write(1, global->buf, global->buf_size);
 	global->buf_size = 0;
 }
-
 
 void	print_buf_and_form(t_printf *global, char *str, int len)
 {

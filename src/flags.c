@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:05:50 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/24 14:04:12 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 19:46:33 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void		width(t_printf *global, t_flags *flags)
 
 	nb = 0;
 	flags->have_width = 1;
-	while (global->form[global->iter_frm] >= '0' && 
+	while (global->form[global->iter_frm] >= '0' &&
 			global->form[global->iter_frm] <= '9')
 	{
 		nb = nb * 10 + (global->form[global->iter_frm] - '0');
@@ -55,8 +55,8 @@ static void		precision(t_printf *global, t_flags *flags)
 	flags->have_precision = 1;
 	global->iter_frm++;
 	while (global->form[global->iter_frm] == '0')
-			global->iter_frm++;
-	while (global->form[global->iter_frm] >= '0' && 
+		global->iter_frm++;
+	while (global->form[global->iter_frm] >= '0' &&
 			global->form[global->iter_frm] <= '9')
 	{
 		nb = nb * 10 + (global->form[global->iter_frm] - '0');
@@ -64,7 +64,6 @@ static void		precision(t_printf *global, t_flags *flags)
 	}
 	flags->precision = (int)nb;
 }
-
 
 static void		get_flags(t_flags *flags, char c)
 {
@@ -84,25 +83,28 @@ static void		get_flags(t_flags *flags, char c)
 		flags->l_counter++;
 	else if (c == 'j')
 		flags->j = 1;
-	else
+	else if (c == 'z')
 		flags->z = 1;
+	else
+		flags->big_l = 1;
 }
 
-void 	find_flags(t_printf *global, t_flags *flags)
+void			find_flags(t_printf *global, t_flags *flags)
 {
 	char c;
 
 	c = global->form[global->iter_frm];
 	while (c == ' ' || c == '#' || c == '+' || c == '-' || c == '.' ||
-		(c >= '0' && c <= '9') || c == 'h' || c == 'l' || c == 'j' || c == 'z')
+		(c >= '0' && c <= '9') || c == 'h' || c == 'l' || c == 'j' ||
+		c == 'z' || c == 'L')
 	{
 		if (c == ' ' || c == '#' || c == '+' || c == '-' || c == '0' ||
-		c == 'h' || c == 'l' || c == 'j' || c == 'z')
+		c == 'h' || c == 'l' || c == 'j' || c == 'z' || c == 'L')
 		{
 			get_flags(flags, c);
 			global->iter_frm++;
 		}
-		else if (c == '.') 
+		else if (c == '.')
 			precision(global, flags);
 		else
 			width(global, flags);

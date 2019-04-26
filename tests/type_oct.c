@@ -1,10 +1,10 @@
 #include "tests.h"
 
-void	type_o(void)
+void	type_oct(void)
 {
 	int ret;
 
-	printf("\n----------- type oct ------------\n");
+	printf("\n----------- type o ------------\n");
 
 	before();
 	ret = printf("%o", 42);
@@ -135,6 +135,18 @@ void	type_o(void)
 	ret = ft_printf("%llO", 4294967296);
 	after(ret);
 
+
+	before();
+	ret = printf("%4.8o", 424242424);
+	between(ret);
+	ret = ft_printf("%4.8o", 424242424);
+	after(ret);
+
+	before();
+	ret = printf("%.o, %.0o", 0, 0);
+	between(ret);
+	ret = ft_printf("%.o, %.0o", 0, 0);
+	after(ret);
 
 	printf("\n-------------------------------\n");
 }

@@ -6,13 +6,13 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 21:23:28 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/26 17:21:05 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:16:50 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char		*hex_or_not_hex(t_flags *flags, size_t nbr, size_t *len, const _Bool x)
+static char	*h_or_not_h(t_flags *flags, size_t nbr, size_t *len, const _Bool x)
 {
 	if (nbr == 0)
 		flags->hash = 0;
@@ -22,16 +22,16 @@ static char		*hex_or_not_hex(t_flags *flags, size_t nbr, size_t *len, const _Boo
 		return (NULL);
 	}
 	return (itoa(nbr, len, 16, x));
-}	
+}
 
-void			type_x(t_printf *global, t_flags *flags)
+void		type_x(t_printf *global, t_flags *flags)
 {
 	size_t		len_n;
 	char		*hex;
 	const _Bool	x = global->form[global->iter_frm] == 'x';
 	const char	*hash = x ? "0x" : "0X";
 
-	hex = hex_or_not_hex(flags, unsigned_nbr(flags, global->ap), &len_n, x);
+	hex = h_or_not_h(flags, unsigned_nbr(flags, global->ap), &len_n, x);
 	precision_count(flags, len_n);
 	width_count(flags, len_n, (flags->hash ? 2 : 0));
 	if (!flags->minus && !flags->zero && flags->have_width)

@@ -27,6 +27,7 @@ int 	main(void)
 	//type_unsigned();
 	//type_xeh();
 	//type_o();
-	type_p();
+	// type_pointer();
+	type_float();
 	return(0);
 }

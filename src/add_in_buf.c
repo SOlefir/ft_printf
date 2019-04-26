@@ -6,7 +6,7 @@
 /*   By: solefir <solefir@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/23 17:02:08 by solefir           #+#    #+#             */
-/*   Updated: 2019/04/25 19:31:05 by solefir          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:02:32 by solefir          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	add_in_buf_str(t_printf *global, char *str, int len)
 
 void	add_in_buf_char(t_printf *global, char c, int count)
 {
-	while (count > 0)				
+	while (count > 0)
 	{
 		if (global->buf_size == PRINTF_BUFF_SIZE)
 			print_buf(global);
